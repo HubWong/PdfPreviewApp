@@ -1,0 +1,109 @@
+﻿@using MvcClient.Models.PdfVms
+@model ItemCategoryVm
+
+<div class="card">
+    <div class="card-header">
+        @(Model.IsAdd==1?"增加":"编辑")
+    </div>
+    <div class="card-body">
+
+        <form class="itemCategoryForm" id="itemCategoryForm" >
+            <div class="row mb-3">
+                <label for="category" class="col-sm-2 col-form-label">类型</label>
+                <input type="hidden" name='id' id="id" value='@Model.id' />
+                <div class="col-sm-9">
+                    @if (Model.IsAdd==1)
+                    {
+                         <select id="category" required class="form-select form-control" autofocus aria-label="Default select" name="category" >
+                                <option selected disabled value="">选择....</option>
+                        @foreach (SelectListItem item in (List<SelectListItem>)ViewBag.Categ)
+                        {
+                            <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                        }
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="category" required class="form-select form-control" autofocus aria-label="Default select" name="category" disabled>
+                                               <option selected disabled value="">选择....</option>
+                        @foreach (SelectListItem item in (List<SelectListItem>)ViewBag.Categ)
+                        {
+                            <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                        }
+                        </select>
+                    }                   
+                     
+                </div>
+   
+            </div>
+
+            <div class="row mb-3">
+                <label for="title" class="col-sm-2 col-form-label">名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="title" required 
+                           name='title' placeholder="请填写名称" 
+                           value="@Model.title">
+                </div>
+                <div class="col-sm-1 valid-feedback">
+                    *
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="orderNo" class="col-sm-2 col-form-label">序号</label>
+                <div class="col-sm-9">
+                    <input type="number" min=1 class="form-control" placeholder="请填写序号" 
+                           required 
+                           name='orderNo' id="orderNo" 
+                           value="@Model.orderNo">
+                </div>
+                <div class="col-sm-1 valid-feedback">
+
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="memo" class="col-sm-2 col-form-label">备注</label>
+                <div class="col-sm-9">
+                    <textarea row=5 class="form-control" name='memo'
+                              placeholder="请填写备注"
+                              style="resize:none" id="memo">@Model.memo</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="isShow"
+                               checked="@Model.isShow"  name='isShow'>
+                        <label class="form-check-label" for="isShow" >
+                            前端可见
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <input type='hidden' name="id" value='@Model.id' />
+            <input type='hidden' name='IsAdd' value='@Model.IsAdd'  class="IsAdd" />
+            <div class='row mb-3'>
+                <div class='col-sm-10 offset-sm-2'>
+                    <button class="btn btn-primary text-light" 
+                      type="submit" >提交</button>
+                    <a class="btn btn-info text-light" onClick='menuController.back()'>取消</a>
+                </div>
+            </div>
+        </form>
+
+        <div class="rstTip">
+            <p class="pl-2 py-1 alert ">
+
+            </p>
+        </div>       
+    </div>
+
+    <div class="card-footer text-muted">
+         <span>修改于</span>@Model.TimeStr
+    </div>
+</div>

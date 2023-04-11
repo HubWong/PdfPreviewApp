@@ -1,0 +1,8 @@
+readme.txt
+*/bin
+*/*/bin/
+*/*/.vscode/
+adminui/
+*.scss
+*obj/
+Ids4/

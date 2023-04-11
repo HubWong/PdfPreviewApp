@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 试卷管理</title>
+    
+    <link href="~/bootstrap3/dist/css/bootstrap.min.css" rel="stylesheet" />     
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles",false)
+</head>
+<body>
+    <header>
+        <nav class="navbar border-bottom box-shadow bg-primary">
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <div class="ms-5 col-md-offset-1"> [<a href="/" class="fs-6" style="color:#fff;" >首页</a>]</div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid p-0">
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/bootstrap3/dist/js/bootstrap.min.js" asp-append-version="true" id="bs"></script>
+    <script src="~/lib/artDialog/dist/dialog-plus.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿@using MvcClient.Models
+
+@model ConsoleModuleVm
+
+@section Styles{
+<link href="~/css/pagination.css" rel="stylesheet" />
+<link href="~/css/sidebar.css" rel="stylesheet" asp-append-version="true" />
+<link href="~/lib/jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet" />
+ <link href="~/css/uploadfile.css" rel="stylesheet" />
+ <link href="~/lib/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+}
+<style>
+    .left {
+        border-right: solid 1px #ddd;
+        background: #fff;
+    }
+
+    .right {
+        padding: 0px;
+        background: #fff;
+    }
+
+    .panel{
+        border-radius:0;
+    }
+    .panel-heading{
+        border-top-left-radius: 0;
+        border-top-right-radius:0
+    }
+</style>
+
+<header>
+    @await Html.PartialAsync("_TopNav")
+</header>
+
+<div class="container-fluid p-0">
+    <div class="align-items-stretch bg-light container-fluid">
+        <div class="row">
+            @await Html.PartialAsync("_SidebarView", Model)
+
+
+            <div class="bg-white flex-fill border-dark col-10  col-md-10" id="main_rgt">
+                <div class="row border-bottom border-dark px-3 py-2"
+                    style="margin-left:0;margin-right:0;padding-bottom:10px;">
+                    <div class="col-md-12">
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles" id="btnTop">
+                            <button type="button" class="btn btn-sm btn-outline-primary text-primary"
+                                onclick="menuController.back()">上一页</button>
+                            <button type="button" class="btn btn-sm btn-danger"
+                                onclick="menuController.tableFunc('dels',-1)">批量删除</button>
+                            <button type="button" class="btn btn-sm btn-success"
+                                onclick="menuController.tableFunc('add')">添加</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="main_div" class="bd-main pt-1 ps-1 col-xs-12">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section Scripts
+{
+
+<script src="~/lib/bootstrap-table/bootstrap-table.js"></script>
+<script src="~/bootstrap-treeview-2/public/js/bootstrap-treeview.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+<script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
+<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
+<script src="~/js/toolfunc.js"></script>
+<script src="~/js/appmodels.js"></script>
+<script src="~/js/baserequest.js"></script>
+<script src="~/js/domgen.js"></script>
+<script src="~/js/myform.js"></script>
+<script src="~/js/jqupload.js"></script>
+<script src="~/js/testpaper/testpaperModels.js"></script>
+<script src="~/js/tree_tbl.js"></script>
+<script src="~/js/basiccontroller.js"></script>
+<script src="~/js/testpaper/menuController.js"></script>
+
+}

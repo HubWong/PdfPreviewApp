@@ -1,0 +1,20 @@
+﻿@model ErrorVm
+@{
+    ViewData["Title"] = "Error";
+}
+
+
+<h2 class="text-danger text-center">请求页面时出现.</h2>
+
+
+@if (Model.ShowRequestId)
+{
+<p class="text-center">
+    <strong>错误信息:</strong>
+    <code class="fs-3">@Model.msg</code>
+    页面:<code>@Model.RequestId</code>
+</p>
+   
+}
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pdf</title>
+    <style type="">
+        #container{
+            height: 100%;
+            width: 800px;
+        }
+        #toolbar{
+            display: none;
+        }
+    </style>
+    <script src="pdfviewer.js"></script>
+</head>
+
+<body>
+    <div class="">
+        <div id="container" style="height: 800px; line-height: 162px;text-align: center;"></div>
+    </div>
+
+    <script type="text/javascript">
+        var options = {
+            pdfOpenParams: {
+                pagemode: "thumbs",
+                toolbar: 0,
+                navpanes: 0,
+                statesbar: 0,
+                view: 'FitV'
+            }
+        }
+        PDFObject.embed("2383.pdf", "#container", options);
+    </script>
+</body>
+
+</html>

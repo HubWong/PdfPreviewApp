@@ -1,0 +1,75 @@
+﻿@using MvcClient.Models
+
+@model ConsoleModuleVm
+
+@section Styles{
+<link href="~/css/pagination.css" rel="stylesheet" />
+<link href="~/css/sidebar.css" rel="stylesheet" asp-append-version="true" />
+<link href="~/lib/jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet" />
+<link href="~/css/uploadfile.css" rel="stylesheet" />
+}
+<style>
+    .ajax-upload-dragdrop {
+        border: none !important;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+</style>
+
+<header>
+
+    @await Html.PartialAsync("_TopNav")
+
+</header>
+
+<div class="align-items-stretch bg-light container-fluid  border-top border-dark">
+    <div class="row  min-vh-100">
+         
+        <div class="border-end border-dark col-2 col-md-2  ps-0 pe-0" id="sidebar_module">
+
+            @await Html.PartialAsync("_SidebarView", Model)
+        </div>
+        <div class="bg-white flex-fill border-dark col-10 ps-0 pe-0" id="">
+            <div class="border-bottom border-dark px-3 py-2">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles" id="btnTop">
+                    <button type="button" class="btn btn-sm btn-outline-primary text-primary"
+                        onclick="menuController.back()">上一页</button>
+                    <button type="button" class="btn btn-sm btn-danger"
+                        onclick="menuController.tableFunc('dels',-1)">批量删除</button>
+                    <button type="button" class="btn btn-sm btn-success"
+                        onclick="menuController.tableFunc('add')">添加</button>
+                </div>
+            </div>
+            <div id="main_div">
+
+            </div>
+        </div>
+        </div>
+      
+</div>
+
+
+@section Scripts
+{
+<script src="~/lib/ueditor-1.4.3.3/ueditor.config.js"></script>
+<script src="~/lib/ueditor-1.4.3.3/ueditor.all.js" id="ue"></script>
+<script src="~/lib/jQuery-File-Upload/js/jquery.uploadfile.min.js"></script>
+<script src="~/js/toolFunc.js"></script>
+<script src="~/js/myForm.js"></script>
+<script src="~/js/jqUpload.js"></script>
+<script src="~/js/appModels.js"></script>
+<script src="~/js/baseRequest.js"></script>
+<script src="~/js/domGen.js"></script>
+<script src="~/js/bindingModel.js"></script>
+<script src="~/js/dashboard/databind.js"></script>
+<script src="~/js/basiccontroller.js"></script>
+<script src="~/js/dashboard/menuController.js"></script>
+<script src="~/js/dashboard/pdfPage.js"></script>
+
+}

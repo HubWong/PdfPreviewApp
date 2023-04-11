@@ -1,0 +1,57 @@
+﻿@using MvcLib.Dto.ColumnDto
+@model ColumnFormVm
+
+<script type="text/html" id="data_tree">
+
+    '@Json.Serialize(ViewBag.rootsData)'
+</script>
+<style>
+    .mb-3 {
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="panel panel-primary" style="margin-top:10px;">
+    <div class="panel-heading">
+        @(Model.IsAdd==1 ? "增加栏目" : "编辑栏目")
+    </div>
+    <div class="panel-body">
+        <form class="clmForm needs-validation" id="clmForm"
+            onsubmit="return MenuController.formSbmit('/api/testpaper',this)" style="">
+
+            <div class="row mb-3">
+                <label for="title" class="col-sm-2 col-form-label text-right"> 名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="name" name='name' placeholder="请填写名称"
+                        value="@Model.Name" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="orderNo" class="col-sm-2 col-form-label text-right">父类</label>
+
+                <div class="col-sm-9" style="position:relative">
+                    <input type="hidden" name="pid" value="0" />
+                   @await Html.PartialAsync("_treeList")
+                </div>
+            </div>         
+
+            <input type='hidden' name="id" value='@Model.Id' />
+
+            <input type='hidden' name='IsAdd' value='@Model.IsAdd' class="IsAdd" />
+            <div class='row mb-3'>
+                <div class="col">
+                </div>
+                <div class="col">
+                </div>
+                <div class='col align-self-center text-center'>
+                    <input class="btn btn-primary text-light" data-ajax="true" type="submit" value="提交" />
+                    <a class="btn btn-light" onClick='menuController.back()'>返回</a>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

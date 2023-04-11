@@ -1,0 +1,9 @@
+﻿
+@using MvcLib.DbEntity.MainContent
+@model ColumnData
+
+<div class="clm">
+    <span data-id="@Model.Id" onclick="menuController.expan(this)">+</span>
+    @Model.Name
+    <a class="btn btn-xs btn-default" onclick="menuController.columnEdit('@Model.Id')">编辑</a>
+</div>

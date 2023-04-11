@@ -1,0 +1,106 @@
+﻿@using System.IO 
+@using MvcClient.Models.PdfVms
+@model PdfRowVm
+
+  <style>
+
+      .ajax-file-upload {
+          padding: 8px 15px !important;
+          border-radius:0 !important;
+          height:30px !important;
+          font-size:small !important;
+      }
+      .ajax-upload-dragdrop{
+          padding:0 !important;
+      }
+ 
+  </style>
+<div class="card">
+    <div class="card-header">
+        @(Model.IsAdd == 1 ? "增加" : "编辑")
+    </div>
+    <div class="card-body">
+
+        <form class="pdfForm needs-validation" id="pdfForm">
+
+            <div class="row mb-3">
+                <label for="title" class="col-sm-2 col-form-label text-right">名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="title" name='title' placeholder="请填写名称" value="@Model.title" required>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label for="orderNo" class="col-sm-2 col-form-label text-right">序号</label>
+                <div class="col-sm-9">
+                    <input type="number" min=1 class="form-control" placeholder="请填写序号" name='orderNo' id="orderNo" value="@Model.orderNo" required>
+                </div>
+                <div class="col-sm-1 valid-feedback">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="memo" class="col-sm-2 col-form-label text-right">描述</label>
+                <div class="col-sm-9">
+                    <div hidden id="cnt">
+                        @Model.memo
+                    </div>
+                    <script id="container" name="memo" type="text/plain">
+                    </script>
+                </div>
+            </div>
+
+            <div class="row mb-3" >
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="isShow"
+                               checked="@Model.isShow" name='isShow'>
+                        <label class="form-check-label" for="isShow">
+                            前端可见
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="image_path" value="@Model.image_path" />    
+   
+
+            <div class="row mb-3">
+                <label for="title" class="col-sm-2 col-form-label"></label>
+            </div>
+
+            <input type='hidden' name="bindingId" value='@Model.bindingId' />
+            <input type='hidden' name="id" value='@Model.id' />
+
+            <input type='hidden' name='IsAdd' value='@Model.IsAdd' class="IsAdd"  />
+            <div class='row mb-3'>
+                <div class="col">
+
+                </div>
+                <div class='col col align-self-center'>
+                    <button class="btn btn-primary text-light" data-ajax="true"
+                            type="submit">
+                        提交
+                    </button>
+                    <a class="btn btn-light" onClick='menuController.back()'>返回</a>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+ 
+
+    <div class="card-footer text-muted d-flex">
+        <span>修改于</span> @Model.TimeStr
+    </div>
+
+
+</div>

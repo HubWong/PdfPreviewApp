@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <Content Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+    <None Remove="wwwroot\lib\jquery-validation-unobtrusive\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Api\TestpaperController.cs" />
+    <Compile Remove="Models\CurPage.cs" />
+    <Compile Remove="Models\Data\BasicDbRepo.cs" />
+    <Compile Remove="Models\PdfVms\Pdf_File_Url_Vm.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Dashboard\_RgtBookTop.cshtml" />
+    <Content Remove="Views\Shared\_LayoutTestpaper.cshtml" />
+    <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <Content Remove="wwwroot\host.html" />
+    <Content Remove="wwwroot\host2.html" />
+    <Content Remove="wwwroot\js\dashboard\httpAction.js" />
+    <Content Remove="wwwroot\js\dashboard\ue.js" />
+    <Content Remove="wwwroot\js\index.js" />
+    <Content Remove="wwwroot\js\table.js" />
+    <Content Remove="wwwroot\js\testpaper\ds_index.js" />
+    <Content Remove="wwwroot\js\treeTable.js" />
+    <Content Remove="wwwroot\test.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery.FileUpload" Version="10.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+    <PackageReference Include="UEditor.Core" Version="1.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MvcLib\MvcLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\upload\pdffile\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

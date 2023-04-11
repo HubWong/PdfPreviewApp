@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="http://webapi.amap.com/theme/v1.3/style1503546983737.css">
+    <style>
+        .my-map {
+            /* <-------need to reset */
+            margin: 0 auto;
+            width: 1200px;
+            height: 400px;
+        }
+
+        .my-map .icon {
+
+            background: url(http://vdata.amap.com/icons/b18/1/2.png) no-repeat;
+        }
+
+        .my-map .icon-cir {
+            height: 31px;
+            width: 28px;
+        }
+
+        .my-map .icon-cir-red {
+            background-position: 1px 0;
+        }
+
+        .amap-container {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="my-map">
+        <div id="mapContainer"></div>
+    </div>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=8325164e247e15eea68b59e89200988b"></script>
+    <script>
+        !function () {
+            var infoWindow, map, level = 17,
+                center = { lng: 116.083763, lat: 35.787238 }, //<-------need to reset
+                features = [{
+                    type: "Marker",
+                    name: "山东新坐标教育发展集团有限公司",
+                    desc: "",
+                    color: "red",
+                    icon: "cir",
+                    offset: { x: -9, y: -31 },
+                    lnglat: { lng: 116.083763, lat: 35.787238 }
+                }];
+
+            function loadFeatures() {
+                for (var feature, data, i = 0, len = features.length, j, jl, path; i < len; i++) {
+                    data = features[i];
+                    switch (data.type) {
+                        case "Marker":
+                            feature = new AMap.Marker({
+                                map: map, position: new AMap.LngLat(data.lnglat.lng, data.lnglat.lat),
+                                zIndex: 3, extData: data, offset: new AMap.Pixel(data.offset.x, data.offset.y), title: data.name,
+                                content: '<div class="icon icon-' + data.icon + ' icon-' + data.icon + '-' + data.color + '"></div>'
+                            });
+                            break;
+                        case "Polyline":
+                            for (j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+                                path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+                            }
+                            feature = new AMap.Polyline({
+                                map: map, path: path, extData: data, zIndex: 2,
+                                strokeWeight: data.strokeWeight, strokeColor: data.strokeColor, strokeOpacity: data.strokeOpacity
+                            });
+                            break;
+                        case "Polygon":
+                            for (j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+                                path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+                            }
+                            feature = new AMap.Polygon({
+                                map: map, path: path, extData: data, zIndex: 1,
+                                strokeWeight: data.strokeWeight, strokeColor: data.strokeColor, strokeOpacity: data.strokeOpacity,
+                                fillColor: data.fillColor, fillOpacity: data.fillOpacity
+                            });
+                            break;
+                        default: feature = null;
+                    }
+                    if (feature) { AMap.event.addListener(feature, "click", mapFeatureClick); }
+                }
+            }
+
+            function mapFeatureClick(e) {
+                if (!infoWindow) { infoWindow = new AMap.InfoWindow({ autoMove: true }); }
+                var extData = e.target.getExtData();
+                infoWindow.setContent("<h5>" + extData.name + "</h5><div>" + extData.desc + "</div>");
+                infoWindow.open(map, e.lnglat);
+            }
+
+            map = new AMap.Map("mapContainer", { center: new AMap.LngLat(center.lng, center.lat), level: level });
+
+            loadFeatures();
+
+            map.on('complete', function () {
+                map.plugin(["AMap.ToolBar", "AMap.OverView", "AMap.Scale"], function () {
+                    map.addControl(new AMap.ToolBar);
+                    map.addControl(new AMap.OverView({ isOpen: true }));
+                    map.addControl(new AMap.Scale);
+                });
+            })
+
+        }();
+    </script>
+
+</body>
+
+</html>

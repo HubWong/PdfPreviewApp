@@ -1,0 +1,12 @@
+@{
+    var routeUrl = ViewContext.RouteData.Values;
+    
+    if (routeUrl.Values.Contains("Home"))
+    {
+        Layout = "_Layout";      
+    } 
+    else{    
+        Layout = "_LayoutDashboard";
+    }
+
+}

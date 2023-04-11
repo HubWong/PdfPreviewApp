@@ -1,0 +1,110 @@
+﻿@using MvcLib.MainContent
+@model PdfUploadLog
+
+<div class="container pt-3  vh-100">
+
+        <div class="card border-0 rounded-0 shadow mb-5 pb-2" >
+    <div class="card-header pt-3">
+     <h6>预览</h6>
+    </div>
+    <div class="card-body">
+    <div class="row">
+                @if(Model.pdf_Urls!=null && Model.pdf_Urls.Count > 0)
+            {
+                var fs = Model.pdf_Urls;
+                for (int i = 0; i < fs.Count; i++)
+                {
+                    <div class = "col-2">
+                          
+                            <div class = "card pt-2 rounded-0">
+                                <img alt = "@fs[i].title"
+                                    src = "@fs[i].image_path"
+                                    class = "card-img-top rounded-0" >
+                                <div class = "card-body text-center" >
+                                    <a href="@fs[i].pdf_url" class = "btn btn-primary btn-xs text-sm-center" >
+                                    免费预览
+                                   </a>
+                             </div>
+                         </div>
+                         
+                 </div>
+                }
+            }
+            else
+            {
+                <div class="text text-center text-muted">
+                    没有记录
+                </div>
+            }
+    </div>
+        </div>
+</div>
+
+    <div class="card h-25 border-0 rounded-0 shadow" >
+    <div class="card-header pt-3">
+       <h6> 配套资源 </h6>
+    </div>
+    <div class="card-body">
+    <div class="row px-1">
+          <table class="table table-striped table-hover">
+
+             @if(Model.pdf_files!=null && Model.pdf_files.Count > 0)
+            {                 
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>文件大小</th>
+                        <th>文件类型</th>
+                        <th>上传时间</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                var fs = Model.pdf_files;
+              
+                 for (int i = 0; i <fs.Count; i++)
+                {
+                   <tr>
+                        <td>@fs[i].title.Split('.')[0]</td>
+                        <td class="sz" data-fs='@fs[i].file_size' >@fs[i].file_size</td>
+                        <td>@fs[i].file_type</td>
+                        <td>@fs[i].make_day.ToShortDateString()</td>
+                        <td>
+                            <a href="@fs[i].saving_path">下载</a>
+                        </td>
+                    </tr>
+                }            
+              
+            }
+            else
+            {
+                <tr >
+                   <td class="text text-center text-muted">
+                        没有记录
+                   </td>
+                </tr>
+            }
+               </table>
+    </div>
+        </div>
+</div>
+</div>
+
+                        @section Scripts{
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/filesize/8.0.7/filesize.min.js"></script>
+                            <script>
+$(function() { 
+
+    getFileSz = function(s) {
+         
+    }
+    let s = $('td.sz'),f;
+    if(s){
+        $(s).each(function() {
+            f = $(this).attr('data-fs');
+            $(this).text(filesize(f));
+        })
+    }
+})
+                             
+                            </script>
+                        }

@@ -1,0 +1,55 @@
+﻿@using MvcClient.Models
+@using MvcLib.Sidebar
+
+@model ConsoleModuleVm
+
+    <div class="align-items-center p-0 my-0  text-decoration-none border-0">
+        <a href="/" class="d-flex align-items-center pb-2 link-dark text-decoration-none">
+            <span class="fs-5 fw-semibold ps-5 pt-2">@Model.ConsoleTitle</span>
+        </a>
+    </div>
+    <div class="list-unstyled" id="home-collapse">
+        @for (int i = 0; i < Model.Sidebars.Count(); i++)
+        {
+            var item = Model.Sidebars.ElementAt(i);
+            <div class="mb-1 accordion-item" data-ctrl="">
+                <a class="btn btn-toggle align-items-center collapsed" 
+                        aria-expanded="true" href="#@item.title"
+                        aria-controls="@item.title" data-bs-toggle="collapse"
+                        data-toggle="collapse"
+                        data-bs-target="#@item.title">
+                    @item.title
+                </a>
+                <div class="collapse in" id="@item.title" >
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small show" id="">
+                        @foreach (AppSidebar inner_sidebar in item.Sidebars)
+                        {
+                            <li class="nav" data-id="@inner_sidebar.id" data-module="@item.title"
+                        onclick="menuController.request(this)" data-title="@inner_sidebar.title"
+                        data-route='@inner_sidebar.Route' data-url="@inner_sidebar.Route">
+                                <a href="javascript:;" class="link-dark">@inner_sidebar.title</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+
+
+        @* <li class="mb-1 accordion-item">
+            <button class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#account-collapse" aria-expanded="false">
+            System technician
+            </button>
+            <div class="collapse" id="account-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Sidebar</a></li>
+            <li><a href="#" class="link-dark rounded">Main Content</a></li>
+            <li><a href="#" class="link-dark rounded">Auth</a></li>
+            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+            </ul>
+            </div>
+            </li>*@
+    </div>
+ 

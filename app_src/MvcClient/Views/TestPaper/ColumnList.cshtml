@@ -1,0 +1,15 @@
+﻿
+@using MvcLib.DbEntity.MainContent
+@model IEnumerable<ColumnData>
+<h5>
+    栏目列表
+</h5>
+
+<div>
+    <script id="treeData">
+        '@Json.Serialize(ViewBag.rootsData)'        
+    </script>
+    <table id="td">
+    </table>
+</div>
+

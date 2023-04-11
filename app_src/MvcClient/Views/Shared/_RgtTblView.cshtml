@@ -1,0 +1,24 @@
+﻿
+@using MvcLib.Tools
+
+@model ITableDom
+<div class="p-2">
+
+
+<table id="table" class="@Model.TableCss">
+    <thead>
+        @Html.Raw(Model?.TableHeadDom)
+    </thead>
+    <tbody>
+        @Html.Raw(Model?.TableRowDom)
+    </tbody>
+    <tfoot>
+        @Html.Raw(Model?.TableFooter)
+    </tfoot>
+   
+</table>
+<div class="black2">
+    @Html.Raw(Model?.PagerDom)
+</div>
+</div>
+

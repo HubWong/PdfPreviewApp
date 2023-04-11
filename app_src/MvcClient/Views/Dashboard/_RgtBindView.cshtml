@@ -1,0 +1,59 @@
+﻿@using MvcLib.MainContent
+
+@model Dictionary<categoryType, List<ItemCategory>>
+
+
+<link href="~/css/databind.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row  justify-content-center pt-3">
+        <div class="col-4">
+            <span class='catch px-2 py-1 text-muted'>已关联</span>
+        </div>
+        <div class="col-4">
+            <span class='active px-2 py-1'>已选中</span>
+        </div>
+    </div>
+</div>
+<hr />
+
+@await Html.PartialAsync("_Bindings", Model)
+
+<div class="row justify-content-center">
+    <div class="col-4">
+        <a href="#" data-trigger="focus" title="删除选定的关联"
+           class="btn btn-danger delBind">删除关联</a>
+
+    </div>
+    <div class="col-4">
+        <div class="btn-group" role="group">
+            <a class="btn  btn-primary clrScreen text-light">清屏</a>
+            <a class="btn btn-primary text-light sv">保存关联</a>
+        </div>
+    </div>
+</div>
+
+<!--modal dialog-->
+<div class="modal fade" id="delBind" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">X</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">删除关联</h4>
+            </div>
+            <div class="modal-body">
+                确定删除 <span style="color:#474747">xx>>yy>>zz>>xx</span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <input type="submit" class="btn btn-primary" onclick="" value="确定">
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,37 @@
+﻿@using MvcClient.Models.Home
+@model HomeIndexVm
+
+
+    <script type = "text/html" >
+      
+       '@Json.Serialize(Model.BindData)'
+      </script>
+
+
+        <div class = "row" data-bind = "@Model.BindId" >
+            @if (Model.Pdfs != null && Model.Pdfs.Count > 0) {
+                for (int i = 0; i < Model.Pdfs.Count; i++) { 
+                    <div class = "col-2"
+                    data - id = "@Model.Pdfs[i].id" >
+                        <a href = "/home/pdf/@Model.Pdfs[i].id" >
+                        <div class = "card pt-2">
+                        <img alt = "@Model.Pdfs[i].title"
+                    src = "@Model.Pdfs[i].image_path"
+                    class = "card-img-top" >
+                        <div class = "card-body" >
+                        <p class = "card-text" >
+                        @Model.Pdfs[i].title
+                </p>
+                </div>
+
+                </div>
+                </a>
+                </div>
+            
+        }
+    } else 
+    { 
+        <p class = "center" > 没有记录 </p >
+          
+    } 
+    </div>

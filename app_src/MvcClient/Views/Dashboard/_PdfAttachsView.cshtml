@@ -1,0 +1,53 @@
+﻿@*@model MvcLib.MainContent.PdfUploadLog*@
+<style>
+        .ajax-file-upload-statusbar{
+        border:1px solid #ddd;
+    }
+    .ajax-file-upload-statusbar{
+         width:550px;
+    }
+    .ajax-file-upload-progress,.ajax-file-upload-filename{
+        width:370px;
+    }
+
+    .ajax-file-upload{
+        padding:12px 21px;
+        height:41px;
+    }
+    .odd{
+        background-color:#eee;
+    }
+    .even{
+        background-color:#d3d3d3
+    }
+</style>
+  
+        <div class="mt-2">
+          <div class="card rounded-0 shadow border-dark">
+                    <div class="card-header border-bottom border-dark">
+                        编辑预览地址
+                    </div>
+                    <div class="card-body">
+                        <span id="urlCvrUpload">预览地址</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="javascript:;" class="btn btn-outline-info btn-sm" id="btn_preview">确定</a>
+                    </div>
+                </div>
+
+           <div class="card mt-5 rounded-0 shadow border-0">
+                    <div class="card-header">
+                          <span>编辑附件</span>
+                         
+                    </div>
+                    <div class="card-body">
+                       <span id="fileUpload">上传附件</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="javascript:;" class="btn btn-outline-info btn-sm" id="btn_attach">确定</a>
+                    </div>
+                </div>
+        </div>
+        
+ 
+

@@ -1,0 +1,60 @@
+﻿@using MvcClient.Models.PdfVms
+
+@model RgtBooksVm
+
+<style>
+    .content-list{
+        margin-left:10px;
+    }
+    section > div.hd {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    section div.hd,div.bd{
+        float:left;
+    }
+    section div ul {
+        list-style:none
+    }
+
+        section div ul li {
+            float: left;
+            padding: 8px;
+        }
+        section div ul li > a {
+            text-decoration: none;
+            color: #000;
+            font-size: small;
+            padding: 3px 10px;
+        }
+            section div ul li.catch > a {
+                background-color: #f36116;
+                text-decoration: none;
+                color: #fff;
+                border-radius: 4px;
+            }
+
+
+    .ds-data-manage {
+        border-bottom: thin solid #000;
+        margin-bottom: 20px;
+    }
+    .ds-data-list>h3{
+        padding:3rem;
+        font-size:small;
+    }
+</style>
+
+<div class="ds-data-list" data-spm="datalist" id="genTbl">
+    <div class="ds-data-manage">
+        <div id="hd-lsn" class="hd-lsn">
+            @await Html.PartialAsync("_Bindings", Model.BindData)
+        </div>
+        <input type="hidden" value="@Model.BindingPdfTable.BindId" name="bindid" />
+
+    </div>
+
+    <div id="pdf_div" class="pdf_div">
+        @await Html.PartialAsync("_RgtTblView", Model.BindingPdfTable.BookTable.TableDom)
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model MvcLib.Dto.PropDto.TestpaperVm
+
+<style>
+    .row{
+        margin-bottom:15px;
+    }
+</style>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        @(Model.IsAdd == 1 ? "增加" : "编辑")
+    </div>
+    <div class="panel-body">
+
+        <form class="propform needs-validation" id="propform">
+            <input type='hidden' name='IsAdd' value='@Model.IsAdd' class="IsAdd" />
+
+            <div class="row">
+                <label for="title" class="col-sm-2 col-form-label text-right">名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="title"
+                           name='prop_name' placeholder="请填写名称"
+                           value="@Model.title" required>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <label for="orderNo" class="col-sm-2 col-form-label text-right">类别</label>
+                <div class="col-sm-9">
+                    <select class="select form-control" name="category">
+                        <option value="0">年份</option>
+                        <option value="1">省份</option>
+                        
+                    </select>
+                </div>
+                <div class="col-sm-1 valid-feedback">
+                </div>
+            </div>
+
+
+            <div class='row'>
+                
+                <div class='col-md-offset-3 align-self-center'>
+                    <button class="btn btn-primary text-light" data-ajax="true"
+                            type="submit">
+                        提交
+                    </button>
+                    <a class="btn btn-light" onClick='menuController.back()'>返回</a>
+                </div>
+                
+            </div>
+
+        </form>
+
+
+    </div>    
+
+
+</div>

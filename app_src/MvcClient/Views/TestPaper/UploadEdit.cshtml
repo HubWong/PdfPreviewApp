@@ -1,0 +1,101 @@
+﻿@using MvcClient.Models.TestpaperVms
+@using MvcLib.Dto.PropDto
+@using System.Runtime.Serialization.Json
+
+@model UploadTPVm
+<style>
+    .row {
+        margin-bottom: 15px;
+    }
+
+    .ajax-upload-dragdrop {
+        border: none;
+    }
+
+    .ajax-file-upload {
+        height: 29px;
+        margin: 0;
+        font-weight: 300;
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #e8e8e8;
+        color: #888;
+        border-radius: 0px;
+        -moz-border-radius: 3px;
+        -moz-box-shadow: 0 2px 0 0 #e8e8e8;
+        -webkit-box-shadow: 0 2px 0 0 #e8e8e8;
+        box-shadow: 0 2px 0 0 #e8e8e8;
+        padding: 5px 28px;
+        color: #fff;
+        background: #2f8ab9;
+        border: none;
+        -moz-box-shadow: 0 2px 0 0 #13648d;
+        -webkit-box-shadow: 0 2px 0 0 #13648d;
+        vertical-align: middle;
+    }
+
+    .ajax-upload-dragdrop {
+        padding: 0;
+    }
+</style>
+
+
+<script type="text/html" id="data_tree">
+    '@(Json.Serialize(Model.columnVms))'
+</script>
+<div class="panel  panel-primary">
+    <input type='hidden' name='IsAdd' value='@Model.IsAdd' class="IsAdd" />
+    <div class="panel panel-heading">
+        @(Model.IsAdd == 1 ? "增加" : "编辑")
+    </div>
+    <div class="panel panel-body">
+        <div class="row">
+            <label for="orderNo" class="col-sm-2 col-form-label text-right">年份</label>
+            <div class='col-md-10 nf'>
+                @foreach (var item in Model.props.Where(a => a.nianfen_or_shengfen == TestpaperPropDto.properType.nf).ToList())
+                {                   
+                    if (Model.uploaddata.nfId == item.id)
+                    {
+                        <a href="javascript:;" class="btn btn-default btn-xs active" role="button" name="nf" data="@item.id">@item.value</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:;"  class="btn btn-default btn-xs " role="button" name="nf" data="@item.id">@item.value</a>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row">
+            <label for="orderNo" class="col-sm-2 col-form-label text-right">省份</label>
+            <div class='col-md-10 sf'>
+                @foreach (var item in Model.props.Where(a => a.nianfen_or_shengfen == TestpaperPropDto.properType.sf).ToList())
+                {
+                    if (Model.uploaddata.sfId == item.id)
+                    {
+                        <a href="javascript:;"  class="btn btn-default btn-xs active" role="button" name="sf" data="@item.id">@item.value</a>
+                    }
+                    else
+                    {
+                        <a href="javascript:;"  class="btn btn-default btn-xs" role="button" name="sf" data="@item.id">@item.value</a>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row">
+            <label for="orderNo" class="col-sm-2 col-form-label text-right">栏目</label>
+            <div class="col-sm-9" style="position:relative">
+                <input type="hidden" name="pid" value="0" />
+                @Html.PartialAsync("_treeList")
+            </div>
+
+        </div>
+        <div class="row">
+            <input type="hidden" id="hideInfo" data-path="@Model.FileInfo.path" 
+            data-name="@Model.FileInfo.name" data-size="@Model.FileInfo.size"/>
+            <label for="title" class="col-sm-2 col-form-label text-right"></label>
+            <div class="col-sm-9">
+                <span id="tpUploader">上传附件</span>
+            </div>
+        </div>
+    </div>
+</div>

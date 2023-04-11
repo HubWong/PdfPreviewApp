@@ -1,0 +1,60 @@
+﻿body {
+    background-color: #f9f9f9
+}
+
+
+section ul {
+    list-style: none;
+    line-height:1.5;
+}
+
+
+section > div.hd {
+    float: left;   
+    font-size: 15px;
+    margin-right:10px;
+    margin-left: 0.5em;
+    padding-top:3px;
+}
+.content-list{
+     min-height:170px;
+}
+
+section.sec_1 ul > li {
+    float: left;         
+    border:1px solid #fff;
+    margin-right:.4em;
+}
+
+    section.sec_1 ul > li > a {
+        text-decoration: none;
+        padding: 2px 6px;
+        font-size:14px;
+        text-align-last: justify;
+    }
+
+
+    section.sec_1 ul > li:hover,
+    section.sec_1 ul > li.catch {
+        border: 1px solid #5362d9;
+        border-radius: .3em;      
+    }
+
+section.sec_2 {
+    min-height: 400px;
+}
+
+    section.sec_2  .row>div {        
+        color: rgba(0,0,0,.65);
+        line-height:1.5;      
+        cursor: pointer;
+        font-size: 14px;
+        letter-spacing:.1em;
+    }
+    section.sec_2 .row a{
+        text-decoration:none;
+    }
+
+    section.sec_2 div.card{
+      
+    }

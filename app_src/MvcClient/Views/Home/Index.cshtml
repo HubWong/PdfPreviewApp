@@ -1,0 +1,36 @@
+﻿
+@model  MvcClient.Models.Home.HomeIndexVm
+
+ <link rel="stylesheet" href="~/css/home/index.css" />
+<section class="sec_1 mt-3"   id="sec_1">
+    <div class="container">
+        <div class="card rounded-0 border-0 shadow">
+            <div class="card-header text-black">
+                选项
+            </div>
+            <div class="card-body bg-gradient h-100">
+                   @await Html.PartialAsync("_Bindings", Model.BindData)
+            </div>
+        </div> 
+    </div>
+</section>
+
+<section class="sec_2 mt-3 pt-3" id="sec_2">
+<div class="container">
+        <div class="card border-0 shadow">
+        <div class="card-header">
+          列表
+        </div>
+        <div class="card-body">
+               @await  Html.PartialAsync("_pdfListView", Model)
+        </div>   
+    </div>
+</div>
+</section>
+
+@section Scripts{
+    <script src="~/js/toolFunc.js"></script>
+    <script src="~/js/domGen.js"></script>
+    <script src="~/js/bindingModel.js"></script>
+    <script src="~/js/home/index.js" ></script>
+}

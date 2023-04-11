@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "jsdelivr",
+      "library": "bootstrap3@3.3.5",
+      "destination": "wwwroot/bootstrap3/",
+      "files": [
+        "dist/css/bootstrap-theme.css",
+        "dist/css/bootstrap-theme.css.map",
+        "dist/css/bootstrap-theme.min.css",
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap.css.map",
+        "dist/css/bootstrap.min.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2",
+        "dist/js/bootstrap.js",
+        "dist/js/bootstrap.min.js"
+      ]
+    },
+    {
+      "library": "bootstrap@5.1.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "ueditor@1.2.3",
+      "destination": "wwwroot/lib/ueditor/"
+    },
+    {
+      "library": "bootstrap-table@1.21.0",
+      "destination": "wwwroot/lib/bootstrap-table/",
+      "files": [
+        "bootstrap-table.min.js",
+        "extensions/treegrid/bootstrap-table-treegrid.js",
+        "extensions/treegrid/bootstrap-table-treegrid.min.js",
+        "locale/bootstrap-table-zh-CN.min.js",
+        "themes/bootstrap-table/fonts/bootstrap-table.eot",
+        "themes/bootstrap-table/fonts/bootstrap-table.svg",
+        "themes/bootstrap-table/fonts/bootstrap-table.ttf",
+        "themes/bootstrap-table/fonts/bootstrap-table.woff",
+        "themes/bootstrap-table/bootstrap-table.css",
+        "themes/bootstrap-table/bootstrap-table.js",
+        "themes/bootstrap-table/bootstrap-table.min.css",
+        "themes/bootstrap-table/bootstrap-table.min.js",
+        //"themes/bulma/bootstrap-table-bulma.css",
+        //"themes/bulma/bootstrap-table-bulma.js",
+        //"themes/bulma/bootstrap-table-bulma.min.css",
+        //"themes/bulma/bootstrap-table-bulma.min.js",
+        //"themes/foundation/bootstrap-table-foundation.css",
+        //"themes/foundation/bootstrap-table-foundation.js",
+        //"themes/foundation/bootstrap-table-foundation.min.css",
+        //"themes/foundation/bootstrap-table-foundation.min.js",
+        //"themes/materialize/bootstrap-table-materialize.css",
+        //"themes/materialize/bootstrap-table-materialize.js",
+        //"themes/materialize/bootstrap-table-materialize.min.css",
+        //"themes/materialize/bootstrap-table-materialize.min.js",
+        //"themes/semantic/bootstrap-table-semantic.css",
+        //"themes/semantic/bootstrap-table-semantic.js",
+        //"themes/semantic/bootstrap-table-semantic.min.css",
+        //"themes/semantic/bootstrap-table-semantic.min.js",
+        "bootstrap-table-locale-all.min.js",
+        "bootstrap-table.min.css"
+      ]
+    },
+    {
+      "library": "jquery-treetable@3.2.0",
+      "destination": "wwwroot/lib/jquery-treetable/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "bootstrap-treeview-2@1.2.1",
+      "destination": "wwwroot/bootstrap-treeview-2/",
+      "files": [
+        "public/css/bootstrap-treeview.css",
+        "public/css/bootstrap-treeview.min.css",
+        "public/js/bootstrap-treeview.js",
+        "public/js/bootstrap-treeview.min.js",
+        "public/example-dom.html",
+        "public/index.html"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "jquery-treegrid@0.3.0",
+      "destination": "wwwroot/jquery-treegrid/",
+      "files": [
+        "js/jquery.cookie.js",
+        "js/jquery.cookie.min.js",
+        "js/jquery.treegrid.bootstrap2.js",
+        "js/jquery.treegrid.bootstrap2.min.js",
+        "js/jquery.treegrid.bootstrap3.js",
+        "js/jquery.treegrid.bootstrap3.min.js",
+        "js/jquery.treegrid.js",
+        "js/jquery.treegrid.min.js",
+        "img/collapse.png",
+        "img/expand.png",
+        "img/file.png",
+        "img/folder.png",
+        "css/jquery.treegrid.min.css",
+        "css/jquery.treegrid.css"
+      ]
+    }
+  ]
+}
